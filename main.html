@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>APP_NAME</title>
+		<title>BSI - Candu</title>
 
 		<meta charset="UTF-8"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.nestedlists.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		
 	</head>
@@ -25,36 +26,43 @@
         <div data-role="page" id="home">
 			<div data-role="header" data-position="fixed" data-theme="a" >
 				<a id="refresh" href="#home" onclick="" data-role="button" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-refresh ui-btn-icon-notext ui-corner-all"></a>
-				<h1>APP_NAME</h1>
+				<h1>BSI - Candu</h1>
 				<a onclick="navigator.app.exitApp();" data-role="button" class="ui-btn-right ui-alt-icon ui-nodisc-icon ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></a>
 			</div>
-			<p align="center">
-				Welcome to APP_NAME
-			</p>
+			<h2 align="center">Basic Subject Index</h2>
+			<ul id="bsi" data-role="listview" data-inset="true" data-child-pages="true">
+
+			</ul>
 		</div>
 
 		<!-- Page -->
         <div data-role="page" id="page">
 			<div data-role="header" data-position="fixed" data-theme="a">
 				<a data-role="button" data-rel="back" data-icon="left" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all"></a>
-				<h1>Page</h1>
+				<h1>BSI - Candu</h1>
 			</div>
-			<ul class="ui-listview" data-role="ui-listview">
-				<li class="ui-li-static ui-body-inherit" >ITEM_NAME</li>
-			</ul>
+			<h2 align="center">BSI - Candu</h2>
+			<p align="center">
+				<br/>Versión 0.1<br/>
+				<br/>Desarrollado por <b>TM31</b><br/>
+				Administración de Bases de Datos del Departamento de Ingeniería Mecánica<br>
+				<br/>
+				<big><b>UG-CNAII-IVCN</b></big>
+			</p>
 		</div>
 
 		<!-- Footer Nav -->
 		<div data-role="footer" data-position="fixed" data-theme="a" data-tap-toggle="false">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#home" data-icon="home">Home</a></li>
-					<li><a href="#page" data-icon="star">Page</a></li>
+					<li><a href="#home" data-icon="home">Inicio</a></li>
+					<li><a href="#page" data-icon="info">Ayuda</a></li>
 				</ul>
 			</div>
 		</div>
 		
-		<script type="text/javascript">		
+		<script type="text/javascript">	
+			$('#bsi').load('data.txt');
 			$(function() {
 				$( "[data-role='navbar']" ).navbar();
 				$( "[data-role='footer']" ).toolbar();
@@ -70,6 +78,7 @@
                         navigator.app.backHistory();
                     }
                 }, false);
+				
         	});	
 		</script>
 		
