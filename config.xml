@@ -15,5 +15,7 @@
     <author href="http://phonegap.com" email="mncarbone@na-sa.com.ar">
         MNCarbone
     </author>
-
+	
+	<icon src="img/icon.png" />
+	
 </widget>
