@@ -36,7 +36,7 @@
 		</div>
 
 		<!-- Page -->
-        <div data-role="page" id="page" style="background-color: #EAE3CE;color:black;">
+        <div data-role="page" id="info" style="background-color: #EAE3CE;color:black;">
 			<div data-role="header" data-position="fixed" data-theme="a">
 				<a data-role="button" data-rel="back" data-icon="left" class="ui-btn-left ui-alt-icon ui-nodisc-icon ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all"></a>
 				<h1>BSI - Candu</h1>
@@ -64,7 +64,8 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home">Inicio</a></li>
-					<li><a href="#page" data-icon="info">Ayuda</a></li>
+					<li><a data-rel="back" data-icon="back">Atrás</a></li>
+					<li><a href="#info" data-icon="info">Ayuda</a></li>
 				</ul>
 			</div>
 		</div>
@@ -72,8 +73,16 @@
 		<script type="text/javascript">	
 			
 			$(function() {
-				$( "[data-role='navbar']" ).navbar();
-				$( "[data-role='footer']" ).toolbar();
+				var $tb =$( "[data-role='footer']" ).toolbar();
+				var $nav = $( "[data-role='navbar']" ).navbar();
+				
+				$(document).on("pageshow", function(event){
+					$nav.find("a").removeClass("ui-btn-active");
+					setTimeout(function(){
+						$nav.find("a[href='#" + event.target.id + "']").addClass("ui-btn-active");
+					}, 1)
+				});
+
 				$.mobile.defaultPageTransition = 'none';
                 $.mobile.defaultHomeScroll = 0;
 				
@@ -87,7 +96,7 @@
                     }
                 }, false);
 				
-        	});	
+        	});
 		</script>
 		
 	</body>
