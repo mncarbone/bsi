@@ -21,7 +21,7 @@
 				.on('touchstart', function(e){
 					$(this).addClass('ui-btn-active');
 				})
-				.on('touchend', function(e){
+				.on('touchend touchmove', function(e){
 					$(this).removeClass('ui-btn-active');
 				});
 		},
