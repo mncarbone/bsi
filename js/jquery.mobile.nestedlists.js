@@ -17,7 +17,13 @@
 			this.element.find( "ul" )
 				.css( "display","none" )
 				.parent()
-				.addClass("ui-btn ui-btn-icon-right ui-icon-carat-r");
+				.addClass("ui-btn ui-btn-icon-right ui-icon-carat-r")
+				.on('touchstart', function(e){
+					$(this).addClass('ui-btn-active');
+				})
+				.on('touchend', function(e){
+					$(this).removeClass('ui-btn-active');
+				});
 		},
 		_attachBindings: function() {
 			this._on({
@@ -34,6 +40,7 @@
 					}
 				}
 			});
+		
 		},
 		_handleSubpageClick: function( event ) {
 			if( $(event.target).closest( "li" ).children( "ul" ).length == 0 ) {
